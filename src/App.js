@@ -29,11 +29,20 @@ const App = () => {
     setSelectUser(userToEdit);
   }
 
-  const editUser = user => {
+  const editUser = editedUser => {
+    const usersArr = users.map(user => {
+      return (user.id === editedUser.id) ? editedUser : user;
+    });
 
+    setUsers(usersArr);
+    setIsEdit(false);
+    setSelectUser(user);
   }
 
-  console.log("1 is", selectUser);
+  const closeEdit = () => {
+    setIsEdit(false);
+    setSelectUser(user);
+  }
 
   return (
     <div className="container">
@@ -42,7 +51,13 @@ const App = () => {
         <div className="form-container col-md-5">
           {
             isEdit
-              ? <EditUser userToEdit={selectUser} editUser={editUser} />
+              ? (
+                <EditUser
+                  userToEdit={selectUser}
+                  editUser={editUser}
+                  closeEdit={closeEdit}
+                />
+              )
               : <AddUser addUser={add} />
           }
         </div>
