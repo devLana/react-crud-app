@@ -10,7 +10,30 @@ const App = () => {
   const user = {id: null, name: "", occupation: ""};
   const [users, setUsers] = useState(data.users);
   const [isEdit, setIsEdit] = useState(false);
-  const [userToEdit, setUserToEdit] = useState(user);
+  const [selectUser, setSelectUser] = useState(user);
+
+  const add = user => {
+    const len = users.length;
+    const newId = len === 0 ? 1 : users[len - 1].id + 1;
+    user.id = newId;
+
+    setUsers([...users, user]);
+  }
+
+  const del = id => {
+    setUsers(users.filter(user => user.id !== id));
+  }
+
+  const edit = userToEdit => {
+    setIsEdit(true);
+    setSelectUser(userToEdit);
+  }
+
+  const editUser = user => {
+
+  }
+
+  console.log("1 is", selectUser);
 
   return (
     <div className="container">
@@ -19,12 +42,17 @@ const App = () => {
         <div className="form-container col-md-5">
           {
             isEdit
-              ? <EditUser />
-              : <AddUser />
+              ? <EditUser userToEdit={selectUser} editUser={editUser} />
+              : <AddUser addUser={add} />
           }
         </div>
         <div className="table-responsive-md col-md-7">
-          <ViewUsers users={users} edit={isEdit} />
+          <ViewUsers
+            users={users}
+            edit={isEdit}
+            deleteUser={del}
+            editedUser={edit}
+          />
         </div>
       </div>
     </div>

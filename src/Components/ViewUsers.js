@@ -1,17 +1,25 @@
 import React from "react";
 
 const ViewUsers = props => {
-  const rows = props.users.map(user => {
+  const { users, deleteUser, edit, editedUser } = props;
+  const rows = users.map(user => {
     return (
       <tr key={user.id}>
         <td>{user.name}</td>
         <td>{user.occupation}</td>
         <td>
-          <button className="edit btn btn-info">Edit</button>
+          <button className="edit btn btn-primary" onClick={() => editedUser(user)}>Edit</button>
           {
-            props.edit
-              ? <button className="delete btn btn-danger disabled">Delete</button>
-              : <button className="delete btn btn-danger">Delete</button>
+            edit
+              ? (
+                <button className="delete btn btn-danger disabled">
+                  Delete
+                </button>
+              ) : (
+                <button className="delete btn btn-danger" onClick={() => deleteUser(user.id)}>
+                  Delete
+                </button>
+              )
           }
         </td>
       </tr>
@@ -31,7 +39,7 @@ const ViewUsers = props => {
         </thead>
         <tbody>
           {
-            props.users.length === 0
+            users.length === 0
               ? <tr><td colSpan={3}>No Data Available</td></tr>
               : rows
           }
