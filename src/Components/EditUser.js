@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const EditUser = props => {
-  const { userToEdit, editUser, closeEdit } = props;
+  const { userToEdit, editedUser, closeEditMode } = props;
   const [user, setUser] = useState(userToEdit);
   useEffect(() => setUser(userToEdit), [userToEdit]);
 
@@ -19,7 +19,7 @@ const EditUser = props => {
     e.preventDefault();
     if (!user.name || !user.occupation) return;
 
-    editUser(user);
+    editedUser(user);
   }
 
   return (
@@ -51,7 +51,7 @@ const EditUser = props => {
           />
         </div>
         <div className="ctrl__btns">
-          <span className="btn btn-secondary" onClick={() => closeEdit()}>Cancel</span>
+          <span className="btn btn-secondary" onClick={() => closeEditMode()}>Cancel</span>
           <input
             type="submit"
             className="btn btn-primary"

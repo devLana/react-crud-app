@@ -1,16 +1,16 @@
 import React from "react";
 
 const ViewUsers = props => {
-  const { users, deleteUser, edit, editedUser } = props;
+  const { users, deleteUser, editMode, editUser } = props;
   const rows = users.map(user => {
     return (
       <tr key={user.id}>
         <td>{user.name}</td>
         <td>{user.occupation}</td>
         <td>
-          <button className="edit btn btn-primary" onClick={() => editedUser(user)}>Edit</button>
+          <button className="edit btn btn-primary" onClick={() => editUser(user)}>Edit</button>
           {
-            edit
+            editMode
               ? (
                 <button className="delete btn btn-danger disabled">
                   Delete
