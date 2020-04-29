@@ -8,13 +8,14 @@ import './index.css';
 
 const App = () => {
   const user = {id: null, name: "", occupation: ""};
+
   const [users, setUsers] = useState(data.users);
   const [isEdit, setIsEdit] = useState(false);
   const [selectUser, setSelectUser] = useState(user);
 
   const add = user => {
     const len = users.length;
-    const newId = len === 0 ? 1 : users[len - 1].id + 1;
+    const newId = (len === 0) ? 1 : users[len - 1].id + 1;
     user.id = newId;
 
     setUsers([...users, user]);
@@ -54,8 +55,8 @@ const App = () => {
               ? (
                 <EditUser
                   userToEdit={selectUser}
-                  editUser={editUser}
-                  closeEdit={closeEdit}
+                  editedUser={editUser}
+                  closeEditMode={closeEdit}
                 />
               )
               : <AddUser addUser={add} />
@@ -64,9 +65,9 @@ const App = () => {
         <div className="table-responsive-md col-md-7">
           <ViewUsers
             users={users}
-            edit={isEdit}
+            editMode={isEdit}
             deleteUser={del}
-            editedUser={edit}
+            editUser={edit}
           />
         </div>
       </div>
