@@ -1,32 +1,6 @@
 import React from "react";
 
 const Form = props => {
-  let submitBtn;
-
-  switch (props.formType) {
-    case "edit":
-      submitBtn = (
-        <div className="ctrl__btns">
-          <span className="btn btn-secondary" onClick={() => props.closeEditFn()}>
-            Cancel
-          </span>
-          <input
-            type="submit"
-            className="btn btn-primary"
-            value="Edit"
-          />
-        </div>
-      );
-      break;
-    default:
-      submitBtn = (
-        <input
-          type="submit"
-          className="btn btn-success"
-          value="Add"
-        />
-      );
-  }
   return (
     <form onSubmit={props.submitFn} autoComplete="off">
       <div className="form-group">
@@ -53,7 +27,27 @@ const Form = props => {
           onBlur={props.blurFn}
         />
       </div>
-      {submitBtn}
+      {
+        props.formType === "edit"
+          ? (
+            <div className="ctrl__btns">
+              <span className="btn btn-secondary" onClick={() => props.closeEditFn()}>
+                Cancel
+              </span>
+              <input
+                type="submit"
+                className="btn btn-primary"
+                value="Edit"
+              />
+            </div>
+          ) : (
+            <input
+              type="submit"
+              className="btn btn-success"
+              value="Add"
+            />
+          )
+      }
     </form>
   )
 }
