@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Form from "./Form";
 
 const AddUser = ({addUser}) => {
   const currentUser = {name: "", occupation: ""};
@@ -25,37 +26,15 @@ const AddUser = ({addUser}) => {
   return (
     <div className="add-user">
       <h3>Add User</h3>
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <div className="form-group">
-          <label htmlFor="add__name">Name</label>
-          <input
-            type="text"
-            name="name"
-            value={user.name}
-            id="add__name"
-            className="form-control form-control-lg"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="add__occupation">Occupation</label>
-          <input
-            type="text"
-            name="occupation"
-            value={user.occupation}
-            id="add__occupation"
-            className="form-control form-control-lg"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-        </div>
-        <input
-          type="submit"
-          className="btn btn-success"
-          value="Add"
-        />
-      </form>
+      <Form
+        nameId="add__name"
+        occupationId="add__occupation"
+        name={user.name}
+        occupation={user.occupation}
+        submitFn={handleSubmit}
+        changeFn={handleChange}
+        blurFn={handleBlur}
+      />
     </div>
   )
 }

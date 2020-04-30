@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Form from "./Form";
 
 const EditUser = props => {
   const { userToEdit, editedUser, closeEditMode } = props;
@@ -25,40 +26,17 @@ const EditUser = props => {
   return (
     <div className="edit-user">
       <h3>Edit User</h3>
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <div className="form-group">
-          <label htmlFor="edit__name">Name</label>
-          <input
-            type="text"
-            name="name"
-            value={user.name}
-            id="edit__name"
-            className="form-control form-control-lg"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="edit__occupation">Occupation</label>
-          <input
-            type="text"
-            name="occupation"
-            value={user.occupation}
-            id="edit__occupation"
-            className="form-control form-control-lg"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-        </div>
-        <div className="ctrl__btns">
-          <span className="btn btn-secondary" onClick={() => closeEditMode()}>Cancel</span>
-          <input
-            type="submit"
-            className="btn btn-primary"
-            value="Edit"
-          />
-        </div>
-      </form>
+      <Form
+        formType="edit"
+        nameId="edit__name"
+        occupationId="edit__occupation"
+        name={user.name}
+        occupation={user.occupation}
+        closeEditFn={closeEditMode}
+        submitFn={handleSubmit}
+        changeFn={handleChange}
+        blurFn={handleBlur}
+      />
     </div>
   )
 }
