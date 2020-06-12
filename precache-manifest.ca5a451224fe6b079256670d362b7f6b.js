@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f86c667c492b9842d1714277cf9e3d00",
+    "revision": "f7cdfbfb8465b53b660763c7fa773348",
     "url": "/react-crud-app/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-crud-app/static/css/2.69121389.chunk.css"
   },
   {
-    "revision": "7eea9143eb8d397d5018",
-    "url": "/react-crud-app/static/css/main.2ba91822.chunk.css"
+    "revision": "279f7cce4668e05df6e8",
+    "url": "/react-crud-app/static/css/main.8deb29bd.chunk.css"
   },
   {
     "revision": "b65465b523ad48c96846",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-crud-app/static/js/2.89908b78.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7eea9143eb8d397d5018",
-    "url": "/react-crud-app/static/js/main.f3bea6d7.chunk.js"
+    "revision": "279f7cce4668e05df6e8",
+    "url": "/react-crud-app/static/js/main.f0f95b95.chunk.js"
   },
   {
     "revision": "01beebef3b43a992b887",
