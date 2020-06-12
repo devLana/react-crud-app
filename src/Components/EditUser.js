@@ -4,7 +4,9 @@ import Form from "./Form";
 const EditUser = props => {
   const { userToEdit, editedUser, closeEditMode } = props;
   const [user, setUser] = useState(userToEdit);
-  useEffect(() => setUser(userToEdit), [userToEdit]);
+  useEffect(() => {
+    setUser(userToEdit)
+  }, [userToEdit]);
 
   const handleChange = e => {
     const { name, value } = e.target;

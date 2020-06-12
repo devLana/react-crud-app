@@ -5,8 +5,8 @@ const ViewUsers = props => {
   const rows = users.map(user => {
     return (
       <tr key={user.id}>
-        <td>{user.name}</td>
-        <td>{user.occupation}</td>
+        <td className="user__name">{user.name}</td>
+        <td className="user__occupation">{user.occupation}</td>
         <td>
           <button className="edit btn btn-primary" onClick={() => editUser(user)}>Edit</button>
           {

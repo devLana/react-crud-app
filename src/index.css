@@ -35,6 +35,11 @@ h3 {
   justify-content: space-between;
 }
 
+.user__name,
+.user__occupation {
+  word-break: break-word;
+}
+
 td:last-child {
   display: flex;
   flex-direction: column;
