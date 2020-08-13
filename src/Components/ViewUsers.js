@@ -8,22 +8,22 @@ const ViewUsers = props => {
         <td className="user__name">{user.name}</td>
         <td className="user__occupation">{user.occupation}</td>
         <td>
-          <button className="edit btn btn-primary" onClick={() => editUser(user)}>Edit</button>
-          {
-            editMode
-              ? (
-                <button className="delete btn btn-danger disabled">
-                  Delete
-                </button>
-              ) : (
-                <button className="delete btn btn-danger" onClick={() => deleteUser(user.id)}>
-                  Delete
-                </button>
-              )
-          }
+          <button className="edit btn btn-primary" onClick={() => editUser(user)}>
+            Edit
+          </button>
+          {editMode ? (
+            <button className="delete btn btn-danger disabled">Delete</button>
+          ) : (
+            <button
+              className="delete btn btn-danger"
+              onClick={() => deleteUser(user.id)}
+            >
+              Delete
+            </button>
+          )}
         </td>
       </tr>
-    )
+    );
   });
 
   return (
@@ -38,16 +38,17 @@ const ViewUsers = props => {
           </tr>
         </thead>
         <tbody>
-          {
-            users.length === 0
-              ? <tr><td colSpan={3}>No Data Available</td></tr>
-              : rows
-          }
+          {users.length === 0 ? (
+            <tr>
+              <td colSpan={3}>No Data Available</td>
+            </tr>
+          ) : (
+            rows
+          )}
         </tbody>
       </table>
     </>
-  )
-
-}
+  );
+};
 
 export default ViewUsers;

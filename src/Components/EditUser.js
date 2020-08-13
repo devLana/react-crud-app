@@ -5,25 +5,25 @@ const EditUser = props => {
   const { userToEdit, editedUser, closeEditMode } = props;
   const [user, setUser] = useState(userToEdit);
   useEffect(() => {
-    setUser(userToEdit)
+    setUser(userToEdit);
   }, [userToEdit]);
 
   const handleChange = e => {
     const { name, value } = e.target;
-    setUser({...user, [name]: value});
-  }
+    setUser({ ...user, [name]: value });
+  };
 
   const handleBlur = e => {
     const { name, value } = e.target;
-    setUser({...user, [name]: value.trim()});
-  }
+    setUser({ ...user, [name]: value.trim() });
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
     if (!user.name || !user.occupation) return;
 
     editedUser(user);
-  }
+  };
 
   return (
     <div className="edit-user">
@@ -40,7 +40,7 @@ const EditUser = props => {
         blurFn={handleBlur}
       />
     </div>
-  )
-}
+  );
+};
 
 export default EditUser;

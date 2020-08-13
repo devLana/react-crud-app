@@ -27,29 +27,18 @@ const Form = props => {
           onBlur={props.blurFn}
         />
       </div>
-      {
-        props.formType === "edit"
-          ? (
-            <div className="ctrl__btns">
-              <span className="btn btn-secondary" onClick={() => props.closeEditFn()}>
-                Cancel
-              </span>
-              <input
-                type="submit"
-                className="btn btn-primary"
-                value="Edit"
-              />
-            </div>
-          ) : (
-            <input
-              type="submit"
-              className="btn btn-success"
-              value="Add"
-            />
-          )
-      }
+      {props.formType === "edit" ? (
+        <div className="ctrl__btns">
+          <span className="btn btn-secondary" onClick={() => props.closeEditFn()}>
+            Cancel
+          </span>
+          <input type="submit" className="btn btn-primary" value="Edit" />
+        </div>
+      ) : (
+        <input type="submit" className="btn btn-success" value="Add" />
+      )}
     </form>
-  )
-}
+  );
+};
 
 export default Form;
