@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import Form from "./Form";
 
-const AddUser = ({addUser}) => {
-  const currentUser = {name: "", occupation: ""};
+const AddUser = ({ addUser }) => {
+  const currentUser = { name: "", occupation: "" };
   const [user, setUser] = useState(currentUser);
 
   const handleChange = e => {
     const { name, value } = e.target;
-    setUser({...user, [name]: value});
-  }
+    setUser({ ...user, [name]: value });
+  };
 
   const handleBlur = e => {
     const { name, value } = e.target;
-    setUser({...user, [name]: value.trim()});
-  }
+    setUser({ ...user, [name]: value.trim() });
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -21,7 +21,7 @@ const AddUser = ({addUser}) => {
 
     addUser(user);
     setUser(currentUser);
-  }
+  };
 
   return (
     <div className="add-user">
@@ -36,7 +36,7 @@ const AddUser = ({addUser}) => {
         blurFn={handleBlur}
       />
     </div>
-  )
-}
+  );
+};
 
 export default AddUser;
