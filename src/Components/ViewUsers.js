@@ -40,7 +40,7 @@ const ViewUsers = props => {
         <tbody>
           {users.length === 0 ? (
             <tr>
-              <td colSpan={3}>No Data Available</td>
+              <th colSpan={3}>No Data Available</th>
             </tr>
           ) : (
             rows

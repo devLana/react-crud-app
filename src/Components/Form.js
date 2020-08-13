@@ -29,7 +29,7 @@ const Form = props => {
       </div>
       {props.formType === "edit" ? (
         <div className="ctrl__btns">
-          <span className="btn btn-secondary" onClick={() => props.closeEditFn()}>
+          <span className="btn btn-secondary" onClick={() => props.closeEdit()}>
             Cancel
           </span>
           <input type="submit" className="btn btn-primary" value="Edit" />

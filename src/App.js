@@ -53,8 +53,8 @@ const App = () => {
           {isEdit ? (
             <EditUser
               userToEdit={selectUser}
-              editedUser={editUser}
-              closeEditMode={closeEdit}
+              editUser={editUser}
+              closeEdit={closeEdit}
             />
           ) : (
             <AddUser addUser={add} />

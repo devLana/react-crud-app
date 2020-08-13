@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import Form from "./Form";
 
 const EditUser = props => {
-  const { userToEdit, editedUser, closeEditMode } = props;
+  const { userToEdit, editUser, closeEdit } = props;
   const [user, setUser] = useState(userToEdit);
+
   useEffect(() => {
     setUser(userToEdit);
   }, [userToEdit]);
-
   const handleChange = e => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
@@ -22,7 +22,7 @@ const EditUser = props => {
     e.preventDefault();
     if (!user.name || !user.occupation) return;
 
-    editedUser(user);
+    editUser(user);
   };
 
   return (
@@ -34,7 +34,7 @@ const EditUser = props => {
         occupationId="edit__occupation"
         name={user.name}
         occupation={user.occupation}
-        closeEditFn={closeEditMode}
+        closeEdit={closeEdit}
         submitFn={handleSubmit}
         changeFn={handleChange}
         blurFn={handleBlur}
