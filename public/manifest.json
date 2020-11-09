@@ -5,7 +5,7 @@
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "32x32",
       "type": "image/x-icon"
     },
     {
@@ -20,8 +20,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/react-crud-app/",
+  "scope": "/react-crud-app/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#fff",
