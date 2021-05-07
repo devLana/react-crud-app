@@ -16,6 +16,7 @@ const App = () => {
   const add = user => {
     const len = users.length;
     const newId = len === 0 ? 1 : users[len - 1].id + 1;
+
     user.id = newId;
 
     setUsers([...users, user]);
