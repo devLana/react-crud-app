@@ -7,16 +7,19 @@ const AddUser = ({ addUser }) => {
 
   const handleChange = e => {
     const { name, value } = e.target;
+
     setUser({ ...user, [name]: value });
   };
 
   const handleBlur = e => {
     const { name, value } = e.target;
+
     setUser({ ...user, [name]: value.trim() });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+
     if (!user.name || !user.occupation) return;
 
     addUser(user);

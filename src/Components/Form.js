@@ -1,6 +1,8 @@
 import React from "react";
 
 const Form = props => {
+  const handleCloseEdit = () => props.closeEdit();
+
   return (
     <form onSubmit={props.submitFn} autoComplete="off">
       <div className="form-group">
@@ -29,7 +31,7 @@ const Form = props => {
       </div>
       {props.formType === "edit" ? (
         <div className="ctrl__btns">
-          <span className="btn btn-secondary" onClick={() => props.closeEdit()}>
+          <span className="btn btn-secondary" onClick={handleCloseEdit}>
             Cancel
           </span>
           <input type="submit" className="btn btn-primary" value="Edit" />
