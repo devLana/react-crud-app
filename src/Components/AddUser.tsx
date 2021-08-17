@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 import Form from "./Form";
+import type { UserToAdd } from "../dataTypes";
 
-const AddUser = ({ addUser }) => {
-  const currentUser = { name: "", occupation: "" };
+interface AddUserProps {
+  addUser(obj: UserToAdd): void;
+}
+
+const AddUser = ({ addUser }: AddUserProps) => {
+  const currentUser: UserToAdd = { name: "", occupation: "" };
   const [user, setUser] = useState(currentUser);
 
-  const handleChange = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setUser({ ...user, [name]: value });
   };
 
-  const handleBlur = e => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setUser({ ...user, [name]: value.trim() });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!user.name || !user.occupation) return;

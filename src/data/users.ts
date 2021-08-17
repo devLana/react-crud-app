@@ -1,4 +1,10 @@
-export const data = {
+import type { User } from "../dataTypes";
+
+type UserData = {
+  users: Array<User>;
+};
+
+export const data: UserData = {
   users: [
     {
       id: 1,

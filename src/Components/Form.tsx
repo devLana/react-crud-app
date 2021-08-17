@@ -1,7 +1,19 @@
 import React from "react";
 
-const Form = props => {
-  const handleCloseEdit = () => props.closeEdit();
+interface FormProps {
+  formType?: string;
+  nameId: string;
+  occupationId: string;
+  name: string;
+  occupation: string;
+  closeEdit?: () => void;
+  submitFn(e: React.FormEvent<HTMLFormElement>): void;
+  changeFn(e: React.ChangeEvent<HTMLInputElement>): void;
+  blurFn(e: React.FocusEvent<HTMLInputElement>): void;
+}
+
+const Form = (props: FormProps) => {
+  const handleCloseEdit = () => props.closeEdit?.();
 
   return (
     <form onSubmit={props.submitFn} autoComplete="off">

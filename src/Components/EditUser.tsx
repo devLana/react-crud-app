@@ -1,26 +1,33 @@
 import React, { useState, useEffect } from "react";
 import Form from "./Form";
+import { User } from "../dataTypes";
 
-const EditUser = ({ userToEdit, editUser, closeEdit }) => {
+interface EditUserProps {
+  userToEdit: User;
+  editUser: (obj: User) => void;
+  closeEdit: () => void;
+}
+
+const EditUser = ({ userToEdit, editUser, closeEdit }: EditUserProps) => {
   const [user, setUser] = useState(userToEdit);
 
   useEffect(() => {
     setUser(userToEdit);
   }, [userToEdit]);
 
-  const handleChange = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setUser({ ...user, [name]: value });
   };
 
-  const handleBlur = e => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setUser({ ...user, [name]: value.trim() });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!user.name || !user.occupation) return;

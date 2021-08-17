@@ -1,6 +1,19 @@
 import React from "react";
+import { User } from "../dataTypes";
 
-const ViewUsers = ({ users, deleteUser, editMode, editUser }) => {
+interface ViewUsersProps {
+  users: Array<User>;
+  deleteUser: (id: number) => void;
+  editMode: boolean;
+  editUser: (user: User) => void;
+}
+
+const ViewUsers = ({
+  users,
+  deleteUser,
+  editMode,
+  editUser,
+}: ViewUsersProps) => {
   const rows = users.map(user => {
     const handleEdit = () => editUser(user);
     const handleDelete = () => deleteUser(user.id);
